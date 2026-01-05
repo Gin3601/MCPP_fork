@@ -1,4 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from app.utils.logger import get_logger
+
+logger = get_logger("config")
 
 
 class Settings(BaseSettings):
@@ -14,4 +17,13 @@ class Settings(BaseSettings):
     )
 
 
-settings = Settings()
+logger.info("开始加载应用配置...")
+try:
+    settings = Settings()
+    logger.info("配置加载成功")
+    logger.info(f"API_URL: {settings.API_URL}")
+    logger.info(f"MEDIA_ROOT: {settings.MEDIA_ROOT}")
+    logger.info(f"PUBLIC_BASE_URL: {settings.PUBLIC_BASE_URL}")
+except Exception as e:
+    logger.error(f"配置加载失败: {e}")
+    raise
