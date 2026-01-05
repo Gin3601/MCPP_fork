@@ -51,7 +51,7 @@ async def run(images, request=None, feature="combine_images"):
     if feature == "商品尺寸图":
         reference_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "input", "reference_size.jpg")
     elif feature == "商品主图":
-        reference_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "input", "reference_main.jpg")
+        reference_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "input", "reference_main1.jpg")
     else:
         reference_file_path = None
     
